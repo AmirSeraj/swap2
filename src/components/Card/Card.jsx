@@ -37,11 +37,98 @@ export const Cards = ({ obj_list, callback }) => {
   const [cardInfo, setCardInfo] = useState();
   const navigate = useNavigate();
 
-  const { taskClaimed, userid, setTaskClaimed, balanceUp } = useData();
+  const { taskClaimed, userid, setTaskClaimed, balanceUp, reward, setReward } =
+    useData();
+
+  const [adController, setAdController] = useState(null);
+  const [buttonVisible, setButtonVisible] = useState(false);
+
+  /**ads */
+  // useEffect(() => {
+  //   if (earned !== 0 && !loaded) {
+  //     onOpen();
+  //   }
+  // }, [earned, loaded]);
+
+  useEffect(() => {
+    const initAdsgram = async () => {
+      const AdController = await window.Adsgram.init({ blockId: "231" });
+      setAdController(AdController);
+    };
+    initAdsgram().then(() => {
+      const randomDelay = Math.floor(Math.random() * 5000) + 5000;
+      getRandomPosition();
+      setRewardDist(5000);
+      setTimeout(() => {
+        if (reward <= 20) {
+          setButtonVisible(true);
+        }
+      }, randomDelay);
+    });
+  }, []);
+
+  function adsDone() {
+    balanceUp(rewardDist);
+    const randomDelay = Math.floor(Math.random() * 20000) + 10000;
+    getRandomPosition();
+    setReward((prev) => prev + 1);
+    setTimeout(() => {
+      setButtonVisible(true);
+    }, randomDelay);
+  }
+  function adsError() {
+    const randomDelay = Math.floor(Math.random() * 50000) + 10000;
+    setTimeout(() => {
+      if (reward <= 20) {
+        setButtonVisible(true);
+      }
+    }, randomDelay);
+  }
+
+  const handleShowAd = async () => {
+    if (!adController) return;
+    try {
+      const result = await adController.show();
+      if (result.done) {
+        adsDone();
+      } else {
+        adsError();
+      }
+    } catch (error) {
+      adsError();
+    } finally {
+      setButtonVisible(false);
+    }
+  };
+
+  const [rewardDist, setRewardDist] = useState(0);
+  /**ads */
 
   return (
     <div className="w-full flex flex-col gap-1">
       {/* eslint-disable-next-line react/prop-types */}
+      <Button
+        color="danger"
+        onClick={() => {
+          handleShowAd();
+        }}
+        borderRadius="1.75rem"
+        duration={8000}
+        containerClassName={`w-full rounded-lg bg-gradient-to-r from-green-900 via-green-400 to-transparent ${
+          !buttonVisible && "hidden"
+        }`}
+        className={`px-5 py-2 flex flex-1 justify-between items-center bg-transparent`}
+        // className={"shake"}
+        // style={{
+        //   zIndex: 100000,
+        //   position: "absolute",
+        //   ...buttonPosition,
+        // }}
+      >
+        <b className="text-xl">Get {rewardDist} Tokens daily !!</b>
+        <IoIosArrowForward size={22} />
+      </Button>
+
       {obj_list.map((task, index) => {
         const { onOpen, isOpen, onOpenChange } = useDisclosure();
         return (

@@ -40,6 +40,26 @@ export const DataProvider = ({ children }) => {
 
   const [imgLoad, setImgLoad] = useState(0);
 
+  const [reward, setReward] = useState(0);
+  const [updateTime, setUpdateTime] = useState(0);
+
+  const initUpdateTime = (uTime, gur, refi, rewarded) => {
+    const c_time = Date.now();
+    if (uTime < c_time / 1000) {
+      setUpdateTime(
+        Math.trunc(c_time / 1000 - ((c_time / 1000) % 86400) + 86400)
+      );
+      setGuruLeft(3);
+      setRefillLeft(3);
+      setReward(0);
+    } else {
+      setReward(rewarded);
+      setUpdateTime(uTime);
+      setGuruLeft(gur);
+      setRefillLeft(refi);
+    }
+  };
+
   const energyInit = (energy_db, time_db, limit, speed) => {
     const now = Number(new Date());
     const diff = Math.trunc((now - time_db) / 1000);
@@ -236,6 +256,11 @@ export const DataProvider = ({ children }) => {
     loading,
     setLoading,
     guru,
+    initUpdateTime,
+    reward,
+    setReward,
+    updateTime,
+    setUpdateTime,
   };
 
   return <DataContext.Provider value={values}>{children}</DataContext.Provider>;
