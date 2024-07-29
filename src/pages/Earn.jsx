@@ -11,6 +11,10 @@ import { FaUserFriends } from "react-icons/fa";
 import { TONConnect } from "../components/Ton/TONConnect.jsx";
 import Balance from "../components/Balance/Balance.jsx";
 import { useData } from "../components/Context.jsx";
+import ModalComponent from "../components/ModalComponent.jsx";
+import { FaHeartCirclePlus } from "react-icons/fa6";
+import { FcLike } from "react-icons/fc";
+import AdsModal from "../components/AdsModal.jsx";
 
 const Earn = () => {
   const [tabActive, setTabActive] = useState(true);
@@ -71,6 +75,7 @@ const Earn = () => {
 
   return (
     <>
+      <AdsModal />
       <div className="w-full h-full flex flex-col items-center px-5 pt-0">
         <div className="relative w-24 h-24 my-8 rounded-full [box-shadow:20px_6px_50px_44px_#FCFF40] ">
           <img className={"w-full scale3d-125"} src={"./coin.png"} alt="coin" />

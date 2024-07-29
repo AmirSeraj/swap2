@@ -10,6 +10,7 @@ import { FcLike } from "react-icons/fc";
 import ExchangeTasks from "../components/Exchange/ExchangeTasks.jsx";
 import UserInfo from "../components/Exchange/UserInfo.jsx";
 import EnergyBoost from "../components/Exchange/EnergyBoost.jsx";
+import AdsModal from "../components/AdsModal.jsx";
 
 const Exchange = () => {
   const { earned, setEarned, loaded } = useData();
@@ -24,7 +25,7 @@ const Exchange = () => {
         reward: earned,
         icon_lg: <FcLike color="red" size={58} />,
         boost: true,
-        btn_text: 'Get Coins'
+        btn_text: "Get Coins",
       });
       onOpen();
     }
@@ -32,6 +33,7 @@ const Exchange = () => {
 
   return (
     <>
+      <AdsModal />
       <ModalComponent
         isOpen={isOpen}
         onOpenChange={onOpenChange}

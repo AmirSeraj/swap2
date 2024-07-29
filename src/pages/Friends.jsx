@@ -7,6 +7,7 @@ import { useState } from "react";
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import { BsPersonHearts } from "react-icons/bs";
 import { TONConnect } from "../components/Ton/TONConnect.jsx";
+import AdsModal from "../components/AdsModal.jsx";
 
 const Friends = () => {
   const { referrals } = useData();

@@ -30,12 +30,12 @@ const Trophy = () => {
         {Trophies?.map((item, index) => (
           <SwiperSlide
             className={`w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]
-              ${index === 0 && 'from-blue-100 from-[#F2D2BD] to-[#FBCEB1]'}
-              ${index === 1 && 'from-blue-200 from-[#DAA06D] to-[#CD7F32]'}
-              ${index === 2 && 'from-blue-300 from-[#F88379] to-[#FF7F50]'}
-              ${index === 3 && 'from-blue-400 from-[#F28C28] to-[#E3963E]'}
-              ${index === 4 && 'from-blue-500 from-[#ff7400] to-[#ffb805]'}
-              ${index === 5 && 'from-blue-600 from-[#ffb805] to-[#ffa505]'}
+              ${index === 0 && 'from-[#F2D2BD] to-[#FBCEB1]'}
+              ${index === 1 && 'from-[#DAA06D] to-[#CD7F32]'}
+              ${index === 2 && 'from-[#F88379] to-[#FF7F50]'}
+              ${index === 3 && 'from-[#F28C28] to-[#E3963E]'}
+              ${index === 4 && 'from-[#ff7400] to-[#ffb805]'}
+              ${index === 5 && 'from-[#ffb805] to-[#ffa505]'}
               `}
             key={index}
           >

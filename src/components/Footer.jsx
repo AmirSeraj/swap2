@@ -44,7 +44,7 @@ const Footer = () => {
     navigate("/exchange");
   }
   return (
-    <div className="w-full h-full place-content-center grid grid-cols-5 xs:gap-0.5 gap-[1px] bg-gradient-to-b  border border-gray-200 rounded-xl xs:p-1 p-0.5 items-center">
+    <div className="w-full h-full place-content-center grid grid-cols-5 xs:gap-0.5 gap-[1px] bg-gradient-to-b border border-gray-200 rounded-xl xs:p-1 p-0.5 items-center">
       {links.map((item, index) => {
         return (
           <Link

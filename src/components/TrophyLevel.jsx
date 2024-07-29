@@ -9,11 +9,11 @@ function TrophyLevel() {
   return (
     <div className={"flex justify-between items-center"}>
       <Link to={"/trophy"} className={"flex justify-center items-center gap-1"}>
-        {Trophies[league].title}
+        {Trophies[league - 1].title}
         <IoIosArrowForward />
       </Link>
       <div className={"flex justify-center items-center gap-2"}>
-        <span className={"text-gray-500"}>Level</span>
+        <span className={"text-black"}>Level</span>
         <span className={"text-white"}>
           {league}/{Trophies.length}
         </span>

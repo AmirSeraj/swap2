@@ -378,6 +378,7 @@ function App() {
              ${league === 3 && "from-[#808000] to-[#FF0000]"}
              ${league === 4 && "from-[#FF0000] to-[#FFD700]"}
              ${league === 5 && "from-[#FFD700] to-[#c8de96]"}
+             ${league === 6 && "from-[#c8de96] to-[#548dc2]"}
              `}
         >
           <main>

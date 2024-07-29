@@ -48,7 +48,7 @@ function Coin() {
             league === 1
               ? "bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#F2D2BD] to-[#FBCEB1]"
               : league === 2
-              ? "bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] [#DAA06D] to-[#CD7F32]"
+              ? "bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#DAA06D] to-[#CD7F32]"
               : league === 3
               ? "bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#F88379] to-[#FF7F50]"
               : league === 4
@@ -65,7 +65,7 @@ function Coin() {
           whileTap={{ scale: 0.85 }}
         >
           <img
-            className={"bg-transparent scale-75"}
+            className={"bg-transparent scale-75 z-10"}
             src={
               league === 1
                 ? "./trophy/wood.png"

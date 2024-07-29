@@ -11,6 +11,7 @@ import { PiRobotBold } from "react-icons/pi";
 import { VscFlame } from "react-icons/vsc";
 import { useData } from "../components/Context";
 import { useNavigate } from "react-router-dom";
+import AdsModal from "../components/AdsModal";
 
 export const upgradeMultiPriceList = [
   200, 500, 1000, 5000, 8000, 10000, 25000, 40000, 75000, 100000, 200000,
@@ -180,6 +181,7 @@ const Boost = () => {
 
   return (
     <div className="xs:px-10 px-5 pb-5 pt-14 flex flex-col w-full h-full">
+      <AdsModal />
       <Balance />
       <h1 className="text-white mt-6 mb-3 font-bold text-2xl">
         Daily Boosters
